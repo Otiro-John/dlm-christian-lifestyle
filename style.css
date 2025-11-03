@@ -489,7 +489,7 @@ nav {
 
 
 /* Mobile styles */
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .nav-links {
         position: absolute;
         top: 100%;
@@ -593,3 +593,4 @@ h4{
      }
 
     }
+
