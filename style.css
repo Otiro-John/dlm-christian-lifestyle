@@ -1,440 +1,358 @@
-/* Reset & base */
+/* ========= Fixed & improved responsive CSS ========= */
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 html{
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 ::selection{
   background: rgb(38, 142, 211);
   color: #fff;
 }
 
-/* Fix: CSS custom properties had typos (---). Use standard --var syntax */
+/* Corrected CSS variables (you had '---' and odd names) */
 :root{
-    --primary-co: rgb(0, 66, 37);
-    --secondary-co: #fff;
-    --dark-co: #111;
-    --accent: rgb(38, 142, 211);
+  --primary-color: rgb(0, 66, 37);
+  --accent-color: rgb(38, 142, 211);
+  --secondary-color: #fff;
+  --dark-color: #111;
 }
 
-/* ensure nav (fixed) doesn't overlap content */
 body{
-  background: #fff;
-  padding-top: 72px; /* adjust if nav height changes */
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,h2,h3,h4,h5,h6{
   font-family: "Playfair Display", serif;
 }
 p,button,span,a,input,textarea{
-   font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 p{
-  line-height: 36px;
+  line-height: 1.8; /* relative unit is better than fixed px for responsiveness */
 }
 
-/* typography sizes (responsive adjustments still in media queries) */
-h1{
-    font-size: 70px;
-    font-weight: 800;
-}
-h2{
-    font-size: 50px;
-    font-weight: 700;
-}
-h3{
-    font-size: 30px;
-    font-weight: 600;
-}
-h4{
-  font-size: 20px;
-}
-p{
-    font-size: 20px;
-}
-button,a{
-    font-size: 18px;
-}
+/* Typographic scale (use relative units where possible) */
+h1{ font-size: 3.75rem; font-weight: 800; }     /* ~60px on typical base */
+h2{ font-size: 2.5rem; font-weight: 700; }      /* ~40px */
+h3{ font-size: 1.5rem; font-weight: 600; }      /* ~24px */
+h4{ font-size: 1.125rem; }                      /* ~18px */
+p{ font-size: 1.125rem; }                       /* ~18px */
+button,a{ font-size: 1rem; }                    /* ~16px */
 
-/* general section layout: use padding instead of forced min-height where possible */
+/* Section wrapper */
 .section{
-    width: 100%;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    padding: 40px 20px;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 2rem; /* ensures spacing on small screens */
 }
 
 /* NAV */
-nav {
+nav{
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: var(--dark-co);
+  background: var(--dark-color);
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
 }
 
-.nav-container {
+.nav-container{
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
 }
 
-.logo img {
+/* Logo */
+.logo img{
   width: 120px;
   height: auto;
   display: block;
 }
 
-/* Desktop nav-links (flex row) */
-.nav-links {
+/* Nav links - desktop */
+.nav-links{
   display: flex;
   gap: 2rem;
   align-items: center;
-  z-index: 1100;
 }
-
-.nav-links a {
+.nav-links a{
   text-decoration: none;
   color: #fff;
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }
-
-.nav-links a:hover {
-  color: var(--accent);
+.nav-links a:hover{
+  color: var(--accent-color);
 }
 
 /* Hamburger button */
-.menu-btn {
-  display: none;        /* shown in mobile media query */
+.menu-btn{
+  display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: #fff;          /* Fix: make visible on dark nav */
+  color: #fff; /* ensure visible on dark nav */
   background: transparent;
   border: none;
 }
 
 /* HERO */
 .hero{
-    width: 100%;
-    min-height: 630px;
-    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("images/Volunteers.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    text-align: center;
+  width: 100%;
+  min-height: 60vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url(images/Volunteers.jpg) center/cover no-repeat;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 4rem; /* account for fixed nav */
 }
 .hero h1{
-    margin-top: 12%;
-    color: #fff;
-    text-transform: uppercase;
+  margin-top: 10vh;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.05;
 }
 .hero h1 span{
-    background-color:#fff ;
-    color: var(--accent);
-    padding: 8px;
-    border-radius: 8px;
+  background-color: #fff;
+  color: var(--accent-color);
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-block;
 }
-.hero p{
-    color: #fff;
-    margin-top: 20px;
-}
+.hero p{ color: #fff; margin-top: 1rem; }
 .hero button{
-    width: 160px;
-    height: 50px;
-    border-radius: 24px;
-    border: 3px solid #fff;
-    background-color: var(--accent);
-    margin-top: 12px;
+  width: 160px;
+  height: 50px;
+  border-radius: 24px;
+  border: 3px solid #fff;
+  background-color: var(--accent-color);
+  margin-top: 12px;
+  cursor: pointer;
 }
-.hero button a{
-    color: #fff;
-}
+.hero button a{ color: #fff; display:block; line-height: 44px; }
 
-/* anchor offsets for sections under fixed nav */
-#encounter{
-  padding-top: 100px;
-}
+/* Anchor fix so sections don't hide under the fixed nav */
+[id] { scroll-margin-top: 80px; }
 
-/* Make images and circular artwork responsive */
+/* Encounter */
+#encounter{ padding-top: 4rem; }
 .encounter-img{
-    width: 400px;
-    max-width: 45vw;
-    height: 400px;
-    max-height: 45vw;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
+  width: min(400px, 40vw);
+  height: auto;
+  aspect-ratio: 1/1;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
-.encounter-img img{
-    max-width: 100%;
-    height: auto;
-}
+.encounter-img img{ max-width: 100%; height: auto; display: block; }
 
 .encounter-text{
-    width: 650px;
-    max-width: 90%;
-    height: auto;
-    max-height: 440px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 16px;
-    text-align: center;
-}
-
-.encounter-text h2 span{
-  color: var(--accent);
-}
-
-.encounter-text .icon{
-    width: 60px;
-    height: 60px;
-    background-color: var(--accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.encounter-text .icon i{
-    font-size: 40px ;
-    color: #fff;
-}
-
-/* Titles & small icons */
-.title{
+  max-width: 650px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
   text-align: center;
 }
-.title i{
-  font-size: 40px ;
-  color: var(--accent);
-}
 
-/* STARTING section */
-#starting{
-    padding-top: 100px;
+/* Title / icons */
+.title{ text-align: center; }
+.title i{ font-size: 40px; color: var(--accent-color); }
+.encounter-text .icon{
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
-#starting .section{
-    flex-direction: column;
-}
+.encounter-text .icon i{ font-size: 40px; color: #fff; }
 
-/* CARD GRID: make cards responsive using min-width/max-width instead of fixed width */
+/* Starting */
+#starting{ padding-top: 4rem; }
+#starting .section{ flex-direction: column; }
+
+/* Info cards */
 .info-cards{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 .info-cards .cards{
-    width: 100%;
-    max-width: 400px;  /* keep design limit but allow shrinking */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin-top: 12px;
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  width: min(400px, 90%);
+  height: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
 }
-
 .info-cards .cards .card-head{
-    width: 100%;
-    height: 300px;
-    border-radius: 16px 16px 0 0;
-    padding: 12px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* keep background variations */
-.info-cards .cards .a{
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("images/dlm-christian-perspective.png");
-}
-.info-cards .cards .b{
-    background: url("images/logo.png");
-    background-position: right;
-}
-.info-cards .cards .c{
-    background: url("images/logo2.png");
-    background-position: right;
-}
-
-/* spacing within card content */
-.info-cards .cards h3,
-.info-cards .cards p,
-.info-cards .cards button{
-    margin: 12px;
-}
-
-/* small progress pill */
-.progress{
-    width: 100px;
-    height: 40px;
-    background-color: var(--accent);
-    border-radius: 4px;
-    text-align: center;
-    padding: 8px 0;
-    font-size: 20px;
-    color: #fff;
-}
-
-/* Buttons */
-button{
-    width: 140px;
-    height: 50px;
-    border-radius: 24px;
-    border: 3px solid #fff;
-    background-color: var(--accent);
-    margin-top: 12px;
-    cursor: pointer;
-}
-button a{
-    color: #fff;
-}
-
-/* Banner */
-.banner{
-    width: 100%;
-    max-width: 800px;
-    min-height: 200px;
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 2px 6px rgba(38, 142, 211, 0.15);
-    text-align: center;
-    padding: 32px;
-    color: #111;
-}
-.banner h2 span, .banner p span{
-  color: var(--accent);
-}
-
-/* ABOUT */
-#about{
-    padding-top: 100px;
-}
-#about .section{
-    flex-direction: column;
-}
-.about{
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    background: #fff;
-    display: flex;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    gap: 20px;
-    padding: 16px;
-    border-radius: 12px;
-    flex-wrap: wrap;
-}
-.about-text{
-    width: 100%;
-    max-width: 500px;
-}
-.about-text button{
-    width: 180px;
-}
-.about img{
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-}
-
-/* Belief card */
-#belief{
-    padding-top: 50px;
-}
-.belief{
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    gap: 20px;
-    padding: 16px;
-    border-radius: 12px;
-}
-.belief .icon i{
-   font-size: 40px;
-   color: var(--accent);
-}
-.belief .title h2 span{
-    color: var(--accent);
-}
-.belief p span{
-    color: var(--accent);
-}
-
-/* TEACHINGS */
-#teachings{
-    padding-top: 100px;
-}
-#teachings .section{
-    flex-direction: column;
-}
-.teachings{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-    gap: 20px;
-}
-.teachings .card-teachings{
-    width: 100%;
-    max-width: 500px;
-    height: 300px; /* FIX: add px */
-    padding: 12px;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-}
-.teachings .card-teachings iframe{
-    width: 100%;
-    height: calc(100% - 24px);
-    border-radius: 12px;
-    border: 0;
-}
-
-/* footer area */
-#footer{
-  padding-top: 100px;
-}
-#footer .section{
-  flex-direction: column;
-  min-height: 200px;
-  background: linear-gradient(rgba(0,0,0,0.5), rgb(38, 142, 211)), url("images/Volunteers.jpg");
+  width: 100%;
+  height: 300px;
+  border-radius: 16px 16px 0 0;
+  padding: 12px;
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
 }
 
+/* named backgrounds */
+.info-cards .cards .a{
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+              url(images/dlm-christian-perspective.png) center/cover no-repeat;
+}
+.info-cards .cards .b{
+  background: url(images/logo.png) right/contain no-repeat;
+}
+.info-cards .cards .c{
+  background: url(images/logo2.png) right/contain no-repeat;
+}
+
+/* Inner card text */
+.info-cards .cards h3,
+.info-cards .cards p,
+.info-cards .cards button{
+  margin: 12px;
+}
+
+/* Progress */
+.progress{
+  width: 100px;
+  height: 40px;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Buttons - prefer consistent rules */
+button{
+  width: 140px;
+  height: 50px;
+  border-radius: 24px;
+  border: 3px solid #fff;
+  background-color: var(--accent-color);
+  margin-top: 12px;
+  cursor: pointer;
+}
+button a{ color: #fff; display:block; }
+
+/* Banner */
+.banner{
+  max-width: 800px;
+  width: 100%;
+  min-height: 200px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 6px rgba(38,142,211,0.15);
+  text-align: center;
+  padding: 2rem;
+  color: #111;
+}
+
+/* About */
+#about{ padding-top: 4rem; }
+#about .section{ flex-direction: column; }
+.about{
+  width: min(1000px, 95%);
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about-text{ flex: 1 1 320px; max-width: 600px; }
+.about img{
+  flex: 0 1 400px;
+  width: min(400px, 45%);
+  height: auto;
+  border-radius: 20px;
+  display:block;
+}
+
+/* Belief */
+#belief{ padding-top: 2.5rem; }
+.belief{
+  width: min(800px, 95%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.belief .icon i{ font-size: 40px; color: var(--accent-color); }
+.belief .title h2 span{ color: var(--accent-color); }
+.belief p span{ color: var(--accent-color); }
+
+/* Teachings */
+#teachings{ padding-top: 4rem; }
+#teachings .section{ flex-direction: column; }
+.teachings{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+.teachings .card-teachings{
+  width: min(500px, 100%);
+  height: 300px;
+  padding: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px;
+}
+.teachings .card-teachings iframe{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: none;
+}
+
+/* Footer */
+#footer{ padding-top: 4rem; }
+#footer .section{
+  flex-direction: column;
+  min-height: 200px;
+  background:
+    linear-gradient(rgba(0,0,0,0.5), var(--accent-color)),
+    url(images/Volunteers.jpg) center/cover no-repeat;
+}
+
+/* Footer layout */
 .upper-display{
   display: flex;
   align-items: center;
@@ -443,154 +361,92 @@ button a{
   padding: 20px;
   flex-wrap: wrap;
 }
-.upper-display .scripture{
-  width: 100%;
-  max-width: 400px;
-  height: 150px;
-}
-.socials{
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-}
-.socials h3{
-    padding: 20px 0;
-}
-.socials .links{
-  display: flex;
-  gap: 20px;
-}
-.socials .links i{
-  font-size: 24px;
-  color: #fff;
-  transition: 0.5s ease-in-out;
-}
-.socials .links i:hover{
-  color: var(--accent);
-}
+.upper-display .scripture{ width: min(400px, 95%); height: auto; }
+.socials{ width: min(300px, 95%); }
+.socials h3{ padding: 20px 0; }
+.socials .links{ display: flex; gap: 20px; }
+.socials .links i{ font-size: 24px; color: #fff; transition: 0.5s ease-in-out; }
+.socials .links i:hover{ color: var(--accent-color); }
 
-.updates{
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
+.updates{ width: min(400px, 95%); }
 .updates p span{
   background: #fff;
-  color: var(--accent);
+  color: var(--accent-color);
   text-transform: uppercase;
   padding: 8px;
   border-radius: 8px;
 }
-.updates button{
-  width: 200px;
-}
+.updates button{ width: 200px; }
+
 .lower-display p{
-  background: var(--accent);
+  background: var(--accent-color);
   padding: 8px;
   color: #fff;
   border-radius: 12px;
 }
-.lower-display p br{
-  display: none;
-}
+.lower-display p br{ display: none; }
 
-/* Mobile styles */
+/* ================= Mobile styles ================= */
 @media (max-width: 900px) {
-
-  /* Mobile nav: hide desktop links and show collapsible menu */
-  .nav-links {
+  .nav-links{
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--dark-co);
+    background: var(--dark-color);
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 2rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: none; /* controlled by .active class */
-    z-index: 1200;
+    display: none;
   }
+  .nav-links.active{ display: flex; animation: fadeIn 0.4s ease-in; }
+  .menu-btn{ display: block; }
 
-  .nav-links.active {
-    display: flex;
-    animation: fadeIn 0.25s ease-in;
-  }
+  /* scale typography down */
+  h1{ font-size: 2.5rem; }
+  h2{ font-size: 1.75rem; }
+  h3{ font-size: 1.25rem; }
+  h4{ font-size: 1rem; }
+  p{ font-size: 1rem; }
 
-  .menu-btn {
-    display: block;
-    color: #fff;
-    background: transparent;
-    border: none;
-  }
-
-  /* Responsive typography */
-  h1{ font-size: 50px; }
-  h2{ font-size: 36px; }
-  h3{ font-size: 24px; }
-  h4{ font-size: 18px; }
-  p{ font-size: 18px; }
-  button,a{ font-size: 18px; }
-
-  .hero{ width:100%; }
-  .hero h1{ margin-top: 28%; }
+  .hero{ padding-top: 6rem; }
+  .hero h1{ margin-top: 8vh; }
   .hero button{ width: 140px; }
 
-  .section{
-    flex-wrap: wrap;
-    padding: 20px;
-  }
+  .section{ flex-wrap: wrap; padding: 1rem; }
 
-  .encounter-img{
-    width: 280px;
-    height: 280px;
-  }
-  .encounter-img img{
-    width: 100%;
-    height: auto;
-  }
-  .encounter-text .icon{
-    width: 40px;
-    height: 40px;
-  }
-  .encounter-text .icon i{
-    font-size: 32px;
-  }
+  .encounter-img{ width: 280px; aspect-ratio: 1/1; }
+  .encounter-img img{ width: 100%; height: auto; }
 
-  .belief{ width:100%; }
-  .info-cards{
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+  .encounter-text .icon{ width: 40px; height: 40px; }
+  .encounter-text .icon i{ font-size: 20px; }
 
-  .banner{ width: 100%; max-width: 100%; }
-  .teachings .card-teachings{ width: 100%; max-width: 100%; }
-  .teachings .card-teachings iframe{ width: 100%; height: auto; min-height: 200px; }
+  .belief{ width: 100%; }
 
-  .about{
-    width: 100%;
-    flex-direction: column-reverse;
-  }
-  .about img{ height: auto; max-height: 400px; }
+  .info-cards{ flex-wrap: wrap; align-items: center; justify-content: center; }
+
+  .banner{ width: 100%; }
+  .teachings .card-teachings{ width: 100%; height: auto; }
+  .teachings .card-teachings iframe{ width: 100%; height: 240px; }
+
+  .about{ flex-direction: column-reverse; }
+  .about img{ height: auto; width: 100%; max-height: 400px; object-fit: cover; }
   .about-text{ width: 100%; }
+
   .upper-display{ flex-direction: column-reverse; }
   .lower-display p br{ display: block; }
 }
 
-/* small screens: tighten spacing */
-@media (max-width: 480px){
-  h1{ font-size: 36px; }
-  .hero h1{ margin-top: 18%; }
-  .section{ padding: 12px; gap: 16px; }
-  .nav-container{ padding: 0.75rem 1rem; }
+/* smaller phones */
+@media (max-width: 480px) {
+  .hero h1{ font-size: 1.75rem; }
+  .menu-btn{ font-size: 1.5rem; }
+  .nav-container{ padding: 0.5rem 1rem; }
 }
 
-/* small utility: responsive images everywhere */
-img{ max-width: 100%; height: auto; display: block; }
-
-/* animation keyframes used above */
-@keyframes fadeIn {
+/* small animation for nav menu */
+@keyframes fadeIn{
   from{ opacity: 0; transform: translateY(-6px); }
   to{ opacity: 1; transform: translateY(0); }
 }
