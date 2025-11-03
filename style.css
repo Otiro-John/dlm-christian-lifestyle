@@ -112,7 +112,7 @@ nav {
     }
     
     .hero{
-        max-width: 1200px;
+        width: 100%;
         min-height: 630px;
         background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(images/Volunteers.jpg);
         background-size: cover;
@@ -564,6 +564,9 @@ h4{
       font-size: 32px;
     }
 
+    .belief{
+        width:100%;
+    }
     .info-cards{
       flex-wrap: wrap;
       align-items: center;
@@ -597,5 +600,6 @@ h4{
      }
 
     }
+
 
 
