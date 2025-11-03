@@ -1,0 +1,594 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+::selection{
+  background:rgb(38, 142, 211);
+  color:#fff;
+}
+:root{
+    ---primary--co:rgb(0, 66, 37);
+    ---secondary--co:#fff;
+    ---dark--co:#111;
+}
+body{
+  background: #fff;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: "Playfair Display", serif;
+}
+p,button,span,a,input,textarea{
+   font-family: "Roboto", sans-serif;
+}
+p{
+  line-height: 36px;
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 800;
+}
+h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+h3{
+    font-size: 30px;
+    font-weight: 600;
+}
+h4{
+  font-size: 20px;
+}
+p{
+    font-size: 20px;
+}
+button,a{
+    font-size: 18px;
+}
+.section{
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      /* background: rgba(255, 255, 255, 0.95); */
+      background: #111;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+    .logo img {
+      width: 120px;
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover {
+      color: rgb(38, 142, 211);
+    }
+
+    /* Hamburger button */
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #222;
+    }
+    
+    .hero{
+        width: 100%;
+        min-height: 630px;
+        background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(images/Volunteers.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        top: 0;
+        overflow: hidden;
+        text-align: center;
+    }
+    .hero h1{
+        margin-top: 12%;
+        color: #fff;
+        text-transform: uppercase;
+    }
+    .hero h1 span{
+        background-color:#fff ;
+        color:rgb(38, 142, 211) ;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    .hero p{
+        color: #fff;
+        margin-top: 20px;
+    }
+    .hero button{
+        width: 160px;
+        height: 50px;
+        border-radius: 24px;
+        border: 3px solid #fff;
+        background-color: rgb(38, 142, 211);
+        margin-top: 12px;
+    }
+    .hero button a{
+        color: #fff;
+    }
+
+    #encounter{
+      padding-top: 100px;
+    }
+
+    .encounter-img{
+        width: 400px;
+        height: 400px;
+        background: #111;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+
+    .encounter-text{
+        width: 650px;
+        height: 440px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        padding: 16px;
+        text-align: center;
+    }
+
+    .encounter-text h2 span{
+      color: rgb(38, 142, 211);
+    }
+
+    .encounter-text .icon{
+        width: 60px;
+        height: 60px;
+        background-color: rgb(38, 142, 211);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .encounter-text .icon i{
+        font-size: 40px ;
+        color: #fff;
+    }
+
+    .title{
+      text-align: center;
+    }
+      
+    .title i{
+      font-size: 40px ;
+      color: rgb(38, 142, 211);
+    }
+    #starting{
+        padding-top: 100px;
+    }
+    
+    #starting .section{
+        flex-direction: column;
+    }
+
+    .info-cards{
+        display: flex;
+        gap: 20px;
+    }
+
+    .info-cards .cards{
+        width: 400px;
+        height: auto;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        margin-top: 12px;
+        border-radius: 16px;
+    }
+    
+    .info-cards .cards .card-head{
+        width: 400px;
+        height: 300px;
+        border-radius: 16px;
+        padding: 12px;
+    }
+
+    .info-cards .cards .a{
+        background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/dlm-christian-perspective.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .info-cards .cards .b{
+        background:  url(images/logo.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .info-cards .cards .c{
+        background:  url(images/logo2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: right;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .info-cards .cards h3, p, button{
+        margin: 12px;
+    }
+
+    .progress{
+        width: 100px;
+        height: 40px;
+        background-color: rgb(38, 142, 211);
+        border-radius: 4px;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 20px;
+        color: #fff;
+    }
+
+     button{
+        width: 140px;
+        height: 50px;
+        border-radius: 24px;
+        border: 3px solid #fff;
+        background-color: rgb(38, 142, 211);
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+     button a{
+        color: #fff;
+     }
+
+     .banner{
+        width: 800px;
+        min-height: 200px;
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 2px 6px rgb(38, 142, 211);
+        text-align: center;
+        padding: 32px;
+        color: #111;
+     }
+
+     .banner h2 span, p span{
+      color: rgb(38, 142, 211);
+     }
+
+     #about{
+        padding-top: 100px;
+     }
+
+     #about .section{
+        flex-direction: column;
+     }
+
+     .about{
+        width: 1000px;
+        height: auto;
+        background: #fff;
+        display: flex;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        gap: 20px;
+        padding: 16px;
+        border-radius: 12px;
+     }
+
+     .about-text{
+        width: 500px;
+     }
+
+     .about-text button{
+        width: 180px;
+     }
+
+     .about img{
+        width: 400px;
+        height: 440px;
+        border-radius: 20px;
+     }
+
+     #belief{
+        padding-top: 50px;
+     }
+
+     .belief{
+        width: 800px;
+        height: auto;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        gap: 20px;
+        padding: 16px;
+        border-radius: 12px;
+     }
+
+     .belief .icon i{
+       font-size: 40px;
+       color: rgb(38, 142, 211);
+     }
+
+     .belief .title h2 span{
+        color: rgb(38, 142, 211);
+     }
+
+     .belief p span{
+        color: rgb(38, 142, 211);
+     }
+
+     #teachings{
+        padding-top: 100px;
+     }
+
+     #teachings .section{
+        flex-direction: column;
+     }
+
+     .teachings{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 20px;
+     }
+
+     .teachings .card-teachings{
+        width: 500px;
+        height: 300;
+        padding: 12px;
+        background-color: #fff;
+         box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+         border-radius: 12px;
+     }
+
+     .teachings .card-teachings iframe{
+        width: 476px;
+        border-radius: 12px;
+     }
+     .check-button button{
+      color: #fff;
+     }
+
+     #footer{
+      padding-top: 100px;
+     }
+
+     #footer .section{
+      flex-direction: column;
+      min-height: 200px;
+      background: linear-gradient(rgba(0,0,0,0.5),rgb(38, 142, 211)), url(images/Volunteers.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+     }
+
+     .upper-display{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 40px;
+      padding: 20px;
+     }
+
+     .upper-display .scripture{
+      width: 400px;
+      height: 150px;
+     }
+
+     .socials{
+      width: 300px;
+      height: auto;
+     }
+
+     .socials h3{
+        padding: 20px 0;
+     }
+
+     .socials .links{
+      display: flex;
+      gap: 20px;
+     }
+
+     .socials .links i{
+      font-size: 24px;
+      color: #fff;
+      transition: 0.5s ease-in-out;
+     }
+
+     .socials .links i:hover{
+      color: rgb(38, 142, 211);
+     }
+
+
+     .updates{
+      width: 400px;
+      height: auto;
+     }
+
+     .updates p span{
+      background: #fff;
+      color: rgb(38, 142, 211);
+      text-transform: uppercase;
+      padding: 8px;
+      border-radius: 8px;
+     }
+
+     .updates button{
+      width: 200px;
+     }
+
+     .lower-display p{
+      background: rgb(38, 142, 211);
+      padding: 8px;
+      color: #fff;
+      border-radius: 12px;
+     }
+
+     .lower-display p br{
+      display: none;
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      .menu-btn {
+        display: block;
+        color: #fff;
+      }
+      h1{
+        font-size: 50px;
+      }
+      h2{
+    font-size: 36px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+  font-size: 18px;
+}
+      p{
+        font-size: 18px;
+      }
+      button,a{
+    font-size: 18px;
+      }
+
+        .hero h1{
+        margin-top: 28%;
+    }
+
+    .hero button{
+      width: 140px;
+    }
+    .section{
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+    .encounter-img{
+      width: 280px;
+      height: 280px;
+    }
+
+    .encounter-img img{
+      width: 240px;
+    }
+
+    .encounter-text .icon{
+      width: 40px;
+      height: 40px;
+    }
+
+    .encounter-text .icon i{
+      font-size: 32px;
+    }
+
+    .info-cards{
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .banner{
+      width: 100%;
+    }
+    .teachings .card-teachings{
+      width: 100%;
+    }
+    .teachings .card-teachings iframe{
+      width: 100%;
+    }
+    .about{
+      width: 100%;
+      flex-direction: column-reverse;
+    }
+    .about img{
+      height: 400px;
+    }
+     .about-text{
+      width: 100%;
+     }
+     .upper-display{
+      flex-direction: column-reverse;
+     }
+       .lower-display p br{
+      display: block;
+     }
+    }
