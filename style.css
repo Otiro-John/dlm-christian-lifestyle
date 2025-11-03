@@ -489,7 +489,7 @@ nav {
 
 
 /* Mobile styles */
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
       .nav-links {
         position: absolute;
         top: 100%;
@@ -591,4 +591,5 @@ h4{
        .lower-display p br{
       display: block;
      }
+
     }
