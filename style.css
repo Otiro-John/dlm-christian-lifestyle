@@ -282,7 +282,7 @@ button a{ color: #fff; display:block; }
 }
 .banner h2 span, p span{
   color:var(--accent-color);
-  padding:8px 0;
+  padding:12px 0;
 }
 
 /* About */
@@ -428,6 +428,7 @@ button a{ color: #fff; display:block; }
 
   .encounter-img{ width: 280px; aspect-ratio: 1/1; }
   .encounter-img img{ width: 100%; height: auto; }
+  .encounter-text{ height:400px}
 
   .encounter-text .icon{ width: 40px; height: 40px; }
   .encounter-text .icon i{ font-size: 20px; }
@@ -460,6 +461,7 @@ button a{ color: #fff; display:block; }
   from{ opacity: 0; transform: translateY(-6px); }
   to{ opacity: 1; transform: translateY(0); }
 }
+
 
 
 
