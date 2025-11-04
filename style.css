@@ -175,6 +175,9 @@ nav{
   padding: 20px;
   text-align: center;
 }
+.encounter-text h2{
+  margin-top:12px;
+}
 .encounter-text p{
   margin-top:20px;
 }
@@ -453,6 +456,7 @@ button a{ color: #fff; display:block; }
   from{ opacity: 0; transform: translateY(-6px); }
   to{ opacity: 1; transform: translateY(0); }
 }
+
 
 
 
