@@ -428,7 +428,10 @@ button a{ color: #fff; display:block; }
 
   .encounter-img{ width: 280px; aspect-ratio: 1/1; }
   .encounter-img img{ width: 100%; height: auto; }
-  .encounter-text{ height:480px}
+  .encounter-text{ height:460px}
+  .encounter-text p{
+  margin-top:16px;
+}
 
   .encounter-text .icon{ width: 40px; height: 40px; }
   .encounter-text .icon i{ font-size: 20px; }
@@ -461,6 +464,7 @@ button a{ color: #fff; display:block; }
   from{ opacity: 0; transform: translateY(-6px); }
   to{ opacity: 1; transform: translateY(0); }
 }
+
 
 
 
