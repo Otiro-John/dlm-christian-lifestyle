@@ -280,6 +280,10 @@ button a{ color: #fff; display:block; }
   padding: 2rem;
   color: #111;
 }
+.banner h2 span{
+  color:var(--accent-color);
+  padding:8px 0;
+}
 
 /* About */
 #about{ padding-top: 4rem; }
@@ -456,6 +460,7 @@ button a{ color: #fff; display:block; }
   from{ opacity: 0; transform: translateY(-6px); }
   to{ opacity: 1; transform: translateY(0); }
 }
+
 
 
 
